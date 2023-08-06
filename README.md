@@ -1,5 +1,5 @@
 # Pubg Helper
-СКАЧАТЬ: [https://github.com/trockii95/Pubg-Helper/raw/master/Pubg%20Helper.rar](url)
+[СКАЧАТЬ](https://github.com/trockii95/Pubg-Helper/releases/tag/Pubg)
 
 Программа для быстрого изменения языка системы windows, системного времени, раскладки клавиатуры.
 ![image](https://github.com/trockii95/Pubg-Helper/assets/3604918/d67604aa-8847-4445-b1ee-c7171538b82b)
