@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 
-namespace Pubg_Helper
+namespace HelperLooT
 {
     internal class IniFile
     {

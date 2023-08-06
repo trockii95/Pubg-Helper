@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 using System.Windows.Forms;
 
-namespace Pubg_Helper
+namespace HelperLooT
 {
     internal static class Program
     {

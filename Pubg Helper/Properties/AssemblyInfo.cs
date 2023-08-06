@@ -5,19 +5,19 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Pubg Helper")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("HelperLooT")]
+[assembly: AssemblyDescription("Лутаем китайские евенты")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Pubg Helper")]
-[assembly: AssemblyCopyright("Copyright ©  2023")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCompany("TROCKII")]
+[assembly: AssemblyProduct("HelperLooT")]
+[assembly: AssemblyCopyright("Copyright ©TROCKII  2023")]
+[assembly: AssemblyTrademark("TROCKII")]
 [assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible
 // to COM components.  If you need to access a type in this assembly from
 // COM, set the ComVisible attribute to true on that type.
-[assembly: ComVisible(false)]
+[assembly: ComVisible(true)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
 [assembly: Guid("f68a94e1-c3f2-4666-a513-1cf88a3540a7")]

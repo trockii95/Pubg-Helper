@@ -1,4 +1,4 @@
-﻿namespace Pubg_Helper
+﻿namespace HelperLooT
 {
     partial class Form1
     {
@@ -45,15 +45,15 @@
             this.btn_chinaEvent = new System.Windows.Forms.Button();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
-            this.button_installCN = new System.Windows.Forms.Button();
             this.button_deinstallCN = new System.Windows.Forms.Button();
+            this.button_installCN = new System.Windows.Forms.Button();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -236,16 +236,6 @@
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "Китайский языковой пакет";
             // 
-            // button_installCN
-            // 
-            this.button_installCN.Location = new System.Drawing.Point(6, 20);
-            this.button_installCN.Name = "button_installCN";
-            this.button_installCN.Size = new System.Drawing.Size(87, 23);
-            this.button_installCN.TabIndex = 0;
-            this.button_installCN.Text = "Установить";
-            this.button_installCN.UseVisualStyleBackColor = true;
-            this.button_installCN.Click += new System.EventHandler(this.button_installCN_Click);
-            // 
             // button_deinstallCN
             // 
             this.button_deinstallCN.Location = new System.Drawing.Point(99, 20);
@@ -255,6 +245,16 @@
             this.button_deinstallCN.Text = "Удалить";
             this.button_deinstallCN.UseVisualStyleBackColor = true;
             this.button_deinstallCN.Click += new System.EventHandler(this.button_deinstallCN_Click);
+            // 
+            // button_installCN
+            // 
+            this.button_installCN.Location = new System.Drawing.Point(6, 20);
+            this.button_installCN.Name = "button_installCN";
+            this.button_installCN.Size = new System.Drawing.Size(87, 23);
+            this.button_installCN.TabIndex = 0;
+            this.button_installCN.Text = "Установить";
+            this.button_installCN.UseVisualStyleBackColor = true;
+            this.button_installCN.Click += new System.EventHandler(this.button_installCN_Click);
             // 
             // groupBox10
             // 
@@ -271,32 +271,25 @@
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "Нас можно найти здесь";
             // 
-            // button5
+            // label3
             // 
-            this.button5.Location = new System.Drawing.Point(6, 20);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(63, 23);
-            this.button5.TabIndex = 0;
-            this.button5.Text = "Discord";
-            this.button5.UseVisualStyleBackColor = true;
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.OliveDrab;
+            this.label3.Location = new System.Drawing.Point(7, 81);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(35, 13);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Сбер:";
             // 
-            // button6
+            // label2
             // 
-            this.button6.Location = new System.Drawing.Point(75, 20);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(52, 23);
-            this.button6.TabIndex = 1;
-            this.button6.Text = "GitHub";
-            this.button6.UseVisualStyleBackColor = true;
-            // 
-            // button7
-            // 
-            this.button7.Location = new System.Drawing.Point(134, 19);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(57, 23);
-            this.button7.TabIndex = 2;
-            this.button7.Text = "Баха";
-            this.button7.UseVisualStyleBackColor = true;
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.Red;
+            this.label2.Location = new System.Drawing.Point(42, 81);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(112, 13);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "2202 2063 1958 3923";
             // 
             // label1
             // 
@@ -307,25 +300,35 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Создателю на печеньки:";
             // 
-            // label2
+            // button7
             // 
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.Color.Red;
-            this.label2.Location = new System.Drawing.Point(42, 81);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(112, 13);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "8800 5553 5350 0000";
+            this.button7.Location = new System.Drawing.Point(134, 19);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(57, 23);
+            this.button7.TabIndex = 2;
+            this.button7.Text = "Баха";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
-            // label3
+            // button6
             // 
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.Color.OliveDrab;
-            this.label3.Location = new System.Drawing.Point(7, 81);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 13);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Сбер:";
+            this.button6.Location = new System.Drawing.Point(75, 20);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(52, 23);
+            this.button6.TabIndex = 1;
+            this.button6.Text = "GitHub";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(6, 20);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(63, 23);
+            this.button5.TabIndex = 0;
+            this.button5.Text = "Discord";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // Form1
             // 
@@ -344,7 +347,7 @@
             this.MaximumSize = new System.Drawing.Size(236, 735);
             this.MinimumSize = new System.Drawing.Size(236, 735);
             this.Name = "Form1";
-            this.Text = "Pubg Helper";
+            this.Text = "Helper Loot";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox3.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);

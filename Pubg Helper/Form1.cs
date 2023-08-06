@@ -6,7 +6,7 @@ using System.Text.RegularExpressions;
 using System.Collections.Generic;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
-namespace Pubg_Helper
+namespace HelperLooT
 {
     public partial class Form1 : Form
     {
@@ -14,152 +14,13 @@ namespace Pubg_Helper
         {
             InitializeComponent();
         }
-        static void ExecuteCommand(string command)
-        {
-            try
-            {
-                ProcessStartInfo startInfo = new ProcessStartInfo
-                {
-                    FileName = "cmd.exe",
-                    Arguments = "/C " + command,
-                    RedirectStandardOutput = true,
-                    RedirectStandardError = true,
-                    UseShellExecute = false,
-                    CreateNoWindow = true
-                };
-
-                using (Process process = new Process())
-                {
-                    process.StartInfo = startInfo;
-                    process.Start();
-
-                    string output = process.StandardOutput.ReadToEnd();
-                    string error = process.StandardError.ReadToEnd();
-
-                    process.WaitForExit();
-
-                    Console.WriteLine("Результат выполнения команды:");
-                    Console.WriteLine(output);
-                    
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Произошла ошибка: " + ex.Message);
-            }
-        }
-        static void ExecutePowerShellCommand(string command)
-        {
-            try
-            {
-                ProcessStartInfo startInfo = new ProcessStartInfo
-                {
-                    FileName = "powershell.exe",
-                    Arguments = command,
-                    RedirectStandardOutput = true,
-                    RedirectStandardError = true,
-                    UseShellExecute = false,
-                    CreateNoWindow = true
-                };
-
-                using (Process process = new Process())
-                {
-                    process.StartInfo = startInfo;
-                    process.Start();
-
-                    string output = process.StandardOutput.ReadToEnd();
-                    string error = process.StandardError.ReadToEnd();
-
-                    process.WaitForExit();
-
-                    Console.WriteLine("Результат выполнения команды PowerShell:");
-                    Console.WriteLine(output);
-                    
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Произошла ошибка: " + ex.Message);
-            }
-        }
-        static void PPExecutePowerShellCommand(string command)
-        {
-            try
-            {
-                ProcessStartInfo startInfo = new ProcessStartInfo
-                {
-                    FileName = "powershell.exe",
-                    Arguments = command,
-                    RedirectStandardOutput = true,
-                    RedirectStandardError = true,
-                    UseShellExecute = false,
-                    //CreateNoWindow = true
-                };
-
-                using (Process process = new Process())
-                {
-                    process.StartInfo = startInfo;
-                    process.Start();
-
-                    string output = process.StandardOutput.ReadToEnd();
-                    string error = process.StandardError.ReadToEnd();
-
-                    process.WaitForExit();
-
-                    Console.WriteLine("Результат выполнения команды PowerShell:");
-                    Console.WriteLine(output);
-
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Произошла ошибка: " + ex.Message);
-            }
-        }
-
-        private void ExecutePowerShellScript(string s) {
-
-            string powerShellPath = "powershell.exe";
-
-            // Параметры запуска PowerShell (передаем скрипт в качестве аргумента командной строки)
-            string arguments = $"-ExecutionPolicy Bypass -NoLogo -NoProfile -Command \"{s}\"";
-
-            // Создаем процесс для выполнения скрипта PowerShell
-            ProcessStartInfo psi = new ProcessStartInfo(powerShellPath, arguments)
-            {
-                RedirectStandardOutput = true,
-                RedirectStandardError = true,
-                UseShellExecute = false,
-                CreateNoWindow = true
-            };
-
-            using (Process ps = new Process())
-            {
-                ps.StartInfo = psi;
-
-                // Запускаем процесс PowerShell
-                ps.Start();
-
-                // Читаем вывод скрипта
-                string output = ps.StandardOutput.ReadToEnd();
-                string errorOutput = ps.StandardError.ReadToEnd();
-
-                // Ожидаем завершения процесса
-                ps.WaitForExit();
-
-                // Выводим результаты
-                Console.WriteLine("Результат выполнения:");
-                Console.WriteLine(output);
-
-               
-            }
-        }
+        
 
 
         private void button10_Click(object sender, EventArgs e)
         {
             //shutdown /l
-            ExecuteCommand("shutdown /l");
+            cmds.ExecuteCommand("shutdown /l");
         }
         
         IniFile iniFile;
@@ -253,11 +114,11 @@ namespace Pubg_Helper
         {
             //часовой пояс
             string tz = RemoveFirstCharacters(comboBox_defTimezone.SelectedItem.ToString(),12);
-            ExecuteCommand("tzutil /s "+tz);
+            cmds.ExecuteCommand("tzutil /s "+tz);
 
             //язык системы
             string lng = comboBox_defLang.SelectedItem.ToString();
-            ExecutePowerShellCommand("Set-WinUILanguageOverride "+lng);
+            cmds.ExecutePowerShellCommand("Set-WinUILanguageOverride "+lng);
 
             //удаление раскладки
             if (radio_da.Checked == true) {
@@ -267,7 +128,7 @@ $DeleteLang = $LanguageList | where LanguageTag -eq 'zh-Hans-CN'
 $LanguageList.Remove($DeleteLang)
 Set-WinUserLanguageList $LanguageList -Force
 ";
-                ExecutePowerShellScript(script);
+                cmds.ExecutePowerShellScript(script);
 
             }
         }
@@ -284,44 +145,61 @@ Set-WinUserLanguageList $LanguageList -Force
         private void button_reboot_Click(object sender, EventArgs e)
         {
             //reboot
-            ExecutePowerShellScript("Restart-Computer");
+            cmds.ExecutePowerShellScript("Restart-Computer");
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            ExecuteCommand("tzutil /s \"China Standard Time\"");
-            ExecutePowerShellCommand("Set-WinUILanguageOverride zh-CN");
+            cmds.ExecuteCommand("tzutil /s \"China Standard Time\"");
+            cmds.ExecutePowerShellCommand("Set-WinUILanguageOverride zh-CN");
             string script = @"
 $list = Get-WinUserLanguageList
 $list.Add('zh-Hans-CN')
 Set-WinUserLanguageList $list -Force";
-            ExecutePowerShellScript(script);
+            cmds.ExecutePowerShellScript(script);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             //(UTC+03:00) Russian Standard Time
-            ExecuteCommand("tzutil /s \"Russian Standard Time\"");
-            ExecutePowerShellCommand("Set-WinUILanguageOverride ru-RU");
+            cmds.ExecuteCommand("tzutil /s \"Russian Standard Time\"");
+            cmds.ExecutePowerShellCommand("Set-WinUILanguageOverride ru-RU");
             string script = @"
 $LanguageList = Get-WinUserLanguageList
 $DeleteLang = $LanguageList | where LanguageTag -eq 'zh-Hans-CN'
 $LanguageList.Remove($DeleteLang)
 Set-WinUserLanguageList $LanguageList -Force
 ";
-            ExecutePowerShellScript(script);
+            cmds.ExecutePowerShellScript(script);
         }
 
         private void button_installCN_Click(object sender, EventArgs e)
         {
             //Install-Language -Language zh-cn -ExcludeFeatures
-            PPExecutePowerShellCommand("Install-Language -Language zh-cn -ExcludeFeatures");
+            cmds.PubExecutePowerShellCommand("Install-Language -Language zh-cn -ExcludeFeatures");
         }
 
         private void button_deinstallCN_Click(object sender, EventArgs e)
         {
             //Uninstall-Language -Language zh-cn
-            PPExecutePowerShellCommand("Uninstall-Language -Language zh-cn");
+            cmds.PubExecutePowerShellCommand("Uninstall-Language -Language zh-cn");
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://vk.com/ibakhmetnews");
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+        //
+        
+            System.Diagnostics.Process.Start("https://github.com/trockii95/Helper-Helper/");
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://discord.com/invite/ibakhmet");
         }
     }
 }
