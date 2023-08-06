@@ -46,7 +46,7 @@ namespace HelperLooT
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Ошибка чтения файла: " + ex.Message);
+                
             }
 
             return settings;
@@ -67,7 +67,7 @@ namespace HelperLooT
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Ошибка записи в файл: " + ex.Message);
+                
             }
         }
 
